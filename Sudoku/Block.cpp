@@ -10,7 +10,7 @@ Block::Block(short (&c)[3][3]) {
 	}
 }
 
-bool Block::NumberDontExists(short tmp) {
+bool Block::numberDontExists(short tmp) {
 	for (int a = 0; a < 3; a++) {
 		for (int b = 0; b < 3; b++) {
 			if (this->i[a][b] == tmp) {
@@ -19,6 +19,14 @@ bool Block::NumberDontExists(short tmp) {
 		}
 	}
 	return true;
+}
+
+void Block::setBlock(short arr[3][3]) {
+	for (int x = 0; x < 3; x++) {
+		for (int y = 0; y < 3; y++) {
+			this->i[x][y] = arr[x][y];
+		}
+	}
 }
 
 Block::Block() {
