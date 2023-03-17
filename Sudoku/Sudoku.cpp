@@ -20,9 +20,29 @@ Sudoku::Sudoku() {
 
 }
 
+void Sudoku::changeDifficulty(short a) { //4 = easy, 3...
+	this->D = a * 15;
+}
+
+bool Sudoku::checkRow(int row, int number) {
+	for (int x = 0; x < 9; x++) {
+		if (findBlock(row, x).getValue(row, x) == number) { return false; }
+	}
+	return true;
+}
+
+bool Sudoku::checkColumn(int column, int number) {
+	for (int x = 0; x < 9; x++) {
+		if (findBlock(x, column).getValue(x, column) == number) { return false; }
+	}
+	return true;
+}
+
 void Sudoku::generateSudoku() {
 
-
+	for (int i = 0; i < this->D; i++) {
+		
+	}
 }
 
 void Sudoku::print() {

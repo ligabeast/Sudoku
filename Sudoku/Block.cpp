@@ -10,10 +10,21 @@ Block::Block(short (&c)[3][3]) {
 	}
 }
 
+bool Block::NumberDontExists(short tmp) {
+	for (int a = 0; a < 3; a++) {
+		for (int b = 0; b < 3; b++) {
+			if (this->i[a][b] == tmp) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 Block::Block() {
 	for (int x = 0; x < 3; x++) {
 		for (int y = 0; y < 3; y++) {
-			this->i[x][y] = y+1;
+			this->i[x][y] = 0;
 		}
 	}
 }

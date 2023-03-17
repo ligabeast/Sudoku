@@ -9,5 +9,6 @@ public:
 	Block(short(&c)[3][3]);
 	bool change(short x, short y, short value);
 	short getValue(short x, short y);
+	bool NumberDontExists(short tmp);
 	void print();
 };
