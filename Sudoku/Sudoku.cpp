@@ -23,7 +23,7 @@ bool Sudoku::changeValue(short x, short y, short value) {
 }
 
 Sudoku::Sudoku() {
-
+	D = 30;
 }
 
 void Sudoku::changeDifficulty(short a) { //4 = easy, 3...
@@ -102,25 +102,23 @@ void Sudoku::initializeSudoku(){
 }
 
 void Sudoku::generateSudoku() {
-
-	for (int i = 0; i < this->D; i++) {
 	
-		short random_x;
-		short random_y;
-
-		do{
-			random_x = rand() % 9;
-			random_y = rand() % 9;
-		} while (this->getValue(random_x, random_y) != 0);
-
-		short random_value;
-
-		do {
-			random_value = rand() % 9 + 1;
-		} while (!checkSudoku(random_x, random_y, random_value));
-
-		changeValue(random_x, random_y, random_value);
-	}
+	do {
+		for (int i = 0; i < 9; i++) {
+			sudoku[i] = Block();
+		}
+		for (int i = 0; i < 5; i++) {
+			for (int row = 0; row < 9; row++) {
+				int col = 0;
+				int val = 0;
+				do {
+					col = rand() % 9;
+					val = rand() % 9 + 1;
+				} while (!(checkSudoku(row, col, val)));
+				changeValue(row, col, val);
+			}
+		}
+	} while (QuantityOfSolutions(0, 0) != 1);
 }
 
 bool Sudoku::checkSudoku(int row, int col, int number) {
@@ -171,6 +169,33 @@ bool Sudoku::solveSudoku(int row, int col) {
 	}
 	changeValue(row, col, oldValue);
 	return false;
+}
+
+int Sudoku::QuantityOfSolutions(int row, int col) {
+
+	if (getValue(row, col) != 0) {
+		getNextEmptyCell(row, col);
+	}
+
+	if (row > 8) { 
+		return 1; 
+	}
+
+	std::vector<int> placebles = findPlacebles(row, col);
+
+	if (placebles.size() <= 0) { return false; }
+
+	int oldValue = getValue(row, col);
+	getNextEmptyCell(row, col);
+	int counter = 0;
+
+	for (auto it = placebles.begin(); it != placebles.end(); it++) {
+
+		changeValue(row, col, *it);
+		counter += QuantityOfSolutions(row, col);
+	}
+	changeValue(row, col, oldValue);
+	return counter;
 }
 
 void Sudoku::printSudoku() {
