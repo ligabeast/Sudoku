@@ -5,7 +5,8 @@
 class Sudoku {
 private:
 	Block sudoku[9];
-	int D;
+	int maxCells;
+	int minCells;
 	Block& findBlock(short x, short y);
 	bool checkRow(int row, int number);
 	bool checkColumn(int column, int number);
@@ -13,9 +14,11 @@ private:
 	void getNextEmptyCell(int& row, int& col);
 public:
 	Sudoku();
+	Sudoku(const Sudoku& cpy);
+	int sumBlankCells();
 	bool changeValue(short x, short y, short value);
 	void generateSudoku();
-	void changeDifficulty(short a);
+	void changeDifficulty(short min, short max);
 	void print();
 	void printSudoku();
 	bool solveSudoku(int row, int col);

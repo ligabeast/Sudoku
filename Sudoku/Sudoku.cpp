@@ -23,11 +23,21 @@ bool Sudoku::changeValue(short x, short y, short value) {
 }
 
 Sudoku::Sudoku() {
-	D = 30;
+	this->maxCells = 50;
+	this->minCells = 40;
 }
 
-void Sudoku::changeDifficulty(short a) { //4 = easy, 3...
-	this->D = a * 15;
+Sudoku::Sudoku(const Sudoku& cpy) {
+	for (int i = 0; i < 9; i++) {
+		this->sudoku[i].copy(cpy.sudoku[i]);
+	}
+	this->maxCells = cpy.maxCells;
+}
+
+
+void Sudoku::changeDifficulty(short min, short max) { // 40 < easy <= 45, easy < medium <= 45, medium < hard <= 50
+	this->minCells = min;
+	this->maxCells = max;
 }
 
 bool Sudoku::checkRow(int row, int number) {
@@ -104,25 +114,54 @@ void Sudoku::initializeSudoku(){
 void Sudoku::generateSudoku() {
 	
 	do {
-		for (int i = 0; i < 9; i++) {
-			sudoku[i] = Block();
-		}
-		for (int i = 0; i < 5; i++) {
-			for (int row = 0; row < 9; row++) {
-				int col = 0;
-				int val = 0;
-				do {
-					col = rand() % 9;
-					val = rand() % 9 + 1;
-				} while (!(checkSudoku(row, col, val)));
-				changeValue(row, col, val);
+		do {
+			for (int i = 0; i < 9; i++) {
+				sudoku[i] = Block();
 			}
-		}
-	} while (QuantityOfSolutions(0, 0) != 1);
+			for (int i = 0; i < 5; i++) {
+				for (int row = 0; row < 9; row++) {
+					int col = 0;
+					int val = 0;
+					do {
+						col = rand() % 9;
+						val = rand() % 9 + 1;
+					} while (!(checkSudoku(row, col, val)));
+					changeValue(row, col, val);
+				}
+			}
+		} while (QuantityOfSolutions(0, 0) == 0);
+
+		Sudoku tmp(*this);
+		tmp.solveSudoku(0, 0);
+
+		do {
+			int row = 0;
+			int col = 0;
+			int oldValue = 0;
+			do {
+				row = rand() % 9;
+				col = rand() % 9;
+			} while (this->getValue(row, col) != 0);
+			oldValue = this->getValue(row, col);
+			this->changeValue(row, col, tmp.getValue(row, col));
+
+			if (QuantityOfSolutions(0, 0) == 0) {
+				this->changeValue(row, col, oldValue);
+			}
+		} while (QuantityOfSolutions(0, 0) > 1);
+	} while (!(sumBlankCells() <= this->maxCells && sumBlankCells() >= this->minCells));
 }
 
 bool Sudoku::checkSudoku(int row, int col, int number) {
 	return (checkColumn(col, number) && checkRow(row, number) && findBlock(row, col).numberDontExists(number));
+}
+
+int Sudoku::sumBlankCells() {
+	int c = 0;
+	for (short i = 0; i < 9; i++) {
+		c += this->sudoku[i].getSumOfBlankCells();
+	}
+	return c;
 }
 
 std::vector<int> Sudoku::findPlacebles(int row, int col) {

@@ -47,6 +47,25 @@ short Block::getValue(short x, short y) {
 	return this->i[x][y];
 }
 
+Block& Block::copy(const Block& c) {
+	for (short row = 0; row < 3; row++) {
+		for (short col = 0; col < 3; col++) {
+			this->i[row][col] = c.i[row][col];
+		}
+	}
+	return *this;
+}
+
+int Block::getSumOfBlankCells() {
+	int c = 0;
+	for (short row = 0; row < 3; row++) {
+		for (short col = 0; col < 3; col++) {
+			if (this->i[row][col] == 0) { c++; }
+		}
+	}
+	return c;
+}
+
 void Block::print() {
 	for (short r = 0; r < 3; r++) {
 		for (short c = 0; c < 3; c++) {

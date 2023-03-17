@@ -40,7 +40,8 @@ int main() {
 		}
 		case 3:
 			obj->generateSudoku();
-			//obj->printSudoku();
+			cout << "Quantity of Solutions : " << obj->QuantityOfSolutions(0, 0) << " Blanked Cells: " << obj->sumBlankCells() << endl;
+			obj->printSudoku();
 			break;
 		case 4:
 			obj->initializeSudoku();
