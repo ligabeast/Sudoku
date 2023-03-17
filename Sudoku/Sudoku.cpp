@@ -23,8 +23,12 @@ bool Sudoku::changeValue(short x, short y, short value) {
 }
 
 Sudoku::Sudoku() {
-	this->maxCells = 50;
+	this->maxCells = 53;
 	this->minCells = 40;
+
+	this->easyGrid = new std::deque<Sudoku>();
+	this->mediumGrid = new std::deque<Sudoku>();
+	this->hardGrid = new std::deque<Sudoku>();
 }
 
 Sudoku::Sudoku(const Sudoku& cpy) {
@@ -32,12 +36,41 @@ Sudoku::Sudoku(const Sudoku& cpy) {
 		this->sudoku[i].copy(cpy.sudoku[i]);
 	}
 	this->maxCells = cpy.maxCells;
+	this->minCells = cpy.minCells;
 }
 
 
 void Sudoku::changeDifficulty(short min, short max) { // 40 < easy <= 45, easy < medium <= 45, medium < hard <= 50
 	this->minCells = min;
 	this->maxCells = max;
+}
+
+void Sudoku::cpySudokuField(const Sudoku& cpy){
+	for (int i = 0; i < 9; i++) {
+		this->sudoku[i].copy(cpy.sudoku[i]);
+	}
+}
+
+void Sudoku::getSudoku(int Difficulty) {
+	using namespace std;
+	switch (Difficulty)
+	{
+	case 1://easy
+		while (easyGrid->size() == 0) { this_thread::sleep_for(1s); }
+		this->cpySudokuField(easyGrid->front());
+		easyGrid->pop_front();
+		break;
+	case 2://medium
+		while (mediumGrid->size() == 0) { this_thread::sleep_for(1s); }
+		this->cpySudokuField(mediumGrid->front());
+		easyGrid->pop_front();
+		break;
+	case 3://hard
+		while (hardGrid->size() == 0) { this_thread::sleep_for(1s); }
+		this->cpySudokuField(hardGrid->front());
+		easyGrid->pop_front();
+		break;
+	}
 }
 
 bool Sudoku::checkRow(int row, int number) {

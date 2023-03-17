@@ -3,11 +3,48 @@
 #include <iomanip>
 using namespace std;
 
+Sudoku* obj = new Sudoku;
+
+void bufferNextGridEasy() {
+	Sudoku tmp;
+	tmp.changeDifficulty(40, 44);
+
+	while (true) {
+		while (obj->easyGrid->size() < 3) {
+			tmp.generateSudoku();
+			obj->easyGrid->push_back(tmp);
+		}
+	}
+}
+void bufferNextGridMedium() {
+	Sudoku tmp;
+	tmp.changeDifficulty(45, 49);
+
+	while (true) {
+		while (obj->mediumGrid->size() < 3) {
+			tmp.generateSudoku();
+			obj->mediumGrid->push_back(tmp);
+		}
+	}
+}
+void bufferNextGridHard() {
+	Sudoku tmp;
+	tmp.changeDifficulty(50, 54);
+
+	while (true) {
+		while (obj->hardGrid->size() < 3) {
+			tmp.generateSudoku();
+			obj->hardGrid->push_back(tmp);
+		}
+	}
+}
 
 int main() {
 
 	short choose = 1;
-	Sudoku* obj = new Sudoku;
+	thread bufferEasy = thread(bufferNextGridEasy);
+	thread bufferMedium = thread(bufferNextGridMedium);
+	thread bufferHard = thread(bufferNextGridHard);
 
 	while (choose != 99) {
 		cout << setfill('-') << setw(10) << "Sudoku" << setfill('-') << setw(10) << "" <<  endl;
@@ -16,6 +53,7 @@ int main() {
 		cout << "3.Generate new" << endl;
 		cout << "4.Initialize Sudoku" << endl;
 		cout << "5.Solve Sudoku" << endl;
+		cout << "6.Get Sudoku by Difficulty" << endl;
 		cout << "99.Exit" << endl;
 		cout << "Input ?=";
 		cin >> choose;
@@ -50,7 +88,16 @@ int main() {
 		case 5:
 			obj->solveSudoku(0,0);
 			break;
+		case 6: {
+			short Difficulty = 0;
+			cout << "Select pls the Difficulty (1 = easy, 2 = medium, 3 = hard): ";
+			cin >> Difficulty;
+			obj->getSudoku(Difficulty);
+			obj->print();
+			break;
 		}
+		}
+
 
 		cout << setfill('-') << setw(26) << endl;
 		cout << endl << endl;
