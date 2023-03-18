@@ -45,13 +45,13 @@ void Sudoku::changeDifficulty(short min, short max) { // 40 < easy <= 45, easy <
 	this->maxCells = max;
 }
 
-void Sudoku::cpySudokuField(const Sudoku& cpy){
+void Sudoku::cpySudokuField(const Sudoku& cpy) {
 	for (int i = 0; i < 9; i++) {
 		this->sudoku[i].copy(cpy.sudoku[i]);
 	}
 }
 
-void Sudoku::getSudoku(int Difficulty) {
+void Sudoku::setSudoku(int Difficulty) {
 	using namespace std;
 	switch (Difficulty)
 	{
@@ -87,65 +87,8 @@ bool Sudoku::checkColumn(int col, int number) {
 	return true;
 }
 
-void Sudoku::initializeSudoku(){
-	short a[3][3] = {
-		{ 0,3,0 },
-		{ 0,0,0 },
-		{ 0,0,8 }
-	};
-	short b[3][3] = {
-		{ 0,0,0 },
-		{ 1,9,5 },
-		{ 0,0,0 }
-	};
-	short c[3][3] = {
-		{ 0,0,0 },
-		{ 0,0,0 },
-		{ 0,6,0 }
-	};
-	short d[3][3] = {
-		{ 8,0,0 },
-		{ 4,0,0 },
-		{ 0,0,0 }
-	};
-	short e[3][3] = {
-		{ 0,6,0 },
-		{ 8,0,0 },
-		{ 0,2,0 }
-	};
-	short f[3][3] = {
-		{ 0,0,0 },
-		{ 0,0,1 },
-		{ 0,0,0 }
-	};
-	short g[3][3] = {
-		{ 0,6,0 },
-		{ 0,0,0 },
-		{ 0,0,0 }
-	};
-	short h[3][3] = {
-		{ 0,0,0 },
-		{ 4,1,9 },
-		{ 0,0,0 }
-	};
-	short i[3][3] = {
-		{ 2,8,0 },
-		{ 0,0,5 },
-		{ 0,7,0 }
-	};
-	sudoku[0].setBlock(a);
-	sudoku[1].setBlock(b);
-	sudoku[2].setBlock(c);
-	sudoku[3].setBlock(d);
-	sudoku[4].setBlock(e);
-	sudoku[5].setBlock(f);
-	sudoku[6].setBlock(g);
-	sudoku[7].setBlock(h);
-	sudoku[8].setBlock(i);
-}
-
 void Sudoku::generateSudoku() {
-	
+
 	do {
 		do {
 			for (int i = 0; i < 9; i++) {
@@ -212,8 +155,8 @@ std::vector<int> Sudoku::findPlacebles(int row, int col) {
 void Sudoku::getNextEmptyCell(int& row, int& col) {
 
 	for (int i = (row * 9) + col + 1; i <= 81; i++) {
-		int r = ((i-1) / 9);
-		int c = ((i-1) % 9);
+		int r = ((i - 1) / 9);
+		int c = ((i - 1) % 9);
 		if (getValue(r, c) == 0) { row = r; col = c; return; }
 	}
 	row = 999; // fertig
@@ -249,8 +192,8 @@ int Sudoku::QuantityOfSolutions(int row, int col) {
 		getNextEmptyCell(row, col);
 	}
 
-	if (row > 8) { 
-		return 1; 
+	if (row > 8) {
+		return 1;
 	}
 
 	std::vector<int> placebles = findPlacebles(row, col);
@@ -270,20 +213,6 @@ int Sudoku::QuantityOfSolutions(int row, int col) {
 	return counter;
 }
 
-void Sudoku::printSudoku() {
-	for (short x = 0; x < 9; x++) {
-		for (short y = 0; y < 9; y++) {
-
-			if (getValue(x,y) != 0) {
-				std::cout << getValue(x,y);
-			}
-			else{
-				std::cout << ".";
-			}
-		}
-	}
-}
-
 void Sudoku::print() {
 	for (short x = 0; x < 9; x++) {
 		if (x % 3 == 0) {
@@ -292,14 +221,14 @@ void Sudoku::print() {
 		for (short y = 0; y < 9; y++) {
 			short row_block = x % 3;
 			short col_block = y % 3;
-			std::cout << " " << this->getValue(x,y) << " ";
-			if ((y+1) % 3 == 0) {
+			std::cout << " " << this->getValue(x, y) << " ";
+			if ((y + 1) % 3 == 0) {
 				std::cout << " ";
 			}
 			else if (y < 8) {
 				std::cout << "|";
 			}
-			
+
 		}
 		std::cout << std::endl;
 	}

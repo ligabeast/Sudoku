@@ -25,13 +25,11 @@ public:
 	void cpySudokuField(const Sudoku& cpy);
 	bool changeValue(short x, short y, short value);
 	void generateSudoku();
-	void getSudoku(int Difficulty);
+	void setSudoku(int Difficulty);
 	void changeDifficulty(short min, short max);
 	void print();
-	void printSudoku();
 	bool solveSudoku(int row, int col);
 	bool checkSudoku(int row, int col, int number);
 	int QuantityOfSolutions(int row, int col);
 	short getValue(short x, short y);
-	void initializeSudoku();
 };

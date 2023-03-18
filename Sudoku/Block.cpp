@@ -1,7 +1,7 @@
 #include "Block.h"
 #include <iostream>
 
-Block::Block(short (&c)[3][3]) {
+Block::Block(short(&c)[3][3]) {
 
 	for (int x = 0; x < 3; x++) {
 		for (int y = 0; y < 3; y++) {
@@ -69,7 +69,7 @@ int Block::getSumOfBlankCells() {
 void Block::print() {
 	for (short r = 0; r < 3; r++) {
 		for (short c = 0; c < 3; c++) {
-			std::cout << " " <<  getValue(r, c) << " ";
+			std::cout << " " << getValue(r, c) << " ";
 			if (c < 2) {
 				std::cout << "|";
 			}

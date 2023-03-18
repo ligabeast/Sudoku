@@ -15,13 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Sudoku.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Block.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrame.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -30,6 +33,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Block.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrame.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
