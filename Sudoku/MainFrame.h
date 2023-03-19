@@ -21,6 +21,8 @@ public:
 	void loadSudokuField();
 	void updateValue(int row, int col, int val);
 	void print();
+	void boostStart();
+	void finished();
 
 	virtual void changeDifficulty(wxCommandEvent& event);
 	virtual void input(wxCommandEvent& event);

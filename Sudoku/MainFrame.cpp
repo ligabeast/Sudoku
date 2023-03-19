@@ -176,62 +176,63 @@ MainFrame::MainFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title) 
 	tmp->Add(Sudoku_buttons[39], 0, wxALL | wxEXPAND, 0);
 	tmp->Add(Sudoku_buttons[40], 0, wxALL | wxEXPAND, 0);
 	tmp->Add(Sudoku_buttons[41], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[48], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[49], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[50], 0, wxALL | wxEXPAND, 0);
-	sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
-	tmp = new wxGridSizer(3, 3, 0, 0);
-	tmp->Add(Sudoku_buttons[33], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[34], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[35], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[42], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[43], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[44], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[51], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[52], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[53], 0, wxALL | wxEXPAND, 0);
-	sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
-	tmp = new wxGridSizer(3, 3, 0, 0);
-	tmp->Add(Sudoku_buttons[54], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[55], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[56], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[63], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[64], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[65], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[72], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[73], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[74], 0, wxALL | wxEXPAND, 0);
-	sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
-	tmp = new wxGridSizer(3, 3, 0, 0);
-	tmp->Add(Sudoku_buttons[57], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[58], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[59], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[66], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[67], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[68], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[75], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[76], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[77], 0, wxALL | wxEXPAND, 0);
-	sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
-	tmp = new wxGridSizer(3, 3, 0, 0);
-	tmp->Add(Sudoku_buttons[60], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[61], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[62], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[69], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[70], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[71], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[78], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[79], 0, wxALL | wxEXPAND, 0);
-	tmp->Add(Sudoku_buttons[80], 0, wxALL | wxEXPAND, 0);
-	sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
+tmp->Add(Sudoku_buttons[48], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[49], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[50], 0, wxALL | wxEXPAND, 0);
+sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
+tmp = new wxGridSizer(3, 3, 0, 0);
+tmp->Add(Sudoku_buttons[33], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[34], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[35], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[42], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[43], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[44], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[51], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[52], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[53], 0, wxALL | wxEXPAND, 0);
+sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
+tmp = new wxGridSizer(3, 3, 0, 0);
+tmp->Add(Sudoku_buttons[54], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[55], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[56], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[63], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[64], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[65], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[72], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[73], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[74], 0, wxALL | wxEXPAND, 0);
+sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
+tmp = new wxGridSizer(3, 3, 0, 0);
+tmp->Add(Sudoku_buttons[57], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[58], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[59], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[66], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[67], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[68], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[75], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[76], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[77], 0, wxALL | wxEXPAND, 0);
+sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
+tmp = new wxGridSizer(3, 3, 0, 0);
+tmp->Add(Sudoku_buttons[60], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[61], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[62], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[69], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[70], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[71], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[78], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[79], 0, wxALL | wxEXPAND, 0);
+tmp->Add(Sudoku_buttons[80], 0, wxALL | wxEXPAND, 0);
+sudoku->Add(tmp, 1, wxBOTTOM | wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 5);
 
-	this->SetSizer(MainSizer);
+this->SetSizer(MainSizer);
 
 
 
-	thread* next = new thread(&MainFrame::bufferNextGrid, this);
+thread* next = new thread(&MainFrame::bufferNextGrid, this);
+thread* startboost = new thread(&MainFrame::boostStart, this);
 
-	loadSudokuField();
+loadSudokuField();
 }
 
 void MainFrame::changeDifficulty(wxCommandEvent& event) {
@@ -263,6 +264,25 @@ void MainFrame::changeDifficulty(wxCommandEvent& event) {
 	loadSudokuField();
 }
 
+void MainFrame::finished() {
+
+	instance->solveSudoku(0, 0);
+
+	for (int i = 0; i < 81; i++) {
+		int r = i / 9;
+		int c = i % 9;
+		if (stoi(Sudoku_buttons[i]->GetLabel().ToStdString()) != instance->getValue(r, c)) {
+			return;
+		}
+	}
+	for (int i = 0; i < 81; i++) {
+		if (Sudoku_buttons[i]->GetForegroundColour() == *wxRED){
+			Sudoku_buttons[i]->SetForegroundColour(*wxGREEN);
+		}
+	}
+	*timer = false;
+}
+
 void MainFrame::updateValue(int row, int col, int val) {
 	Sudoku_buttons[row * 9 + col]->SetLabel(to_string(val));
 }
@@ -278,6 +298,9 @@ void MainFrame::input(wxCommandEvent& event) {
 		selected->SetLabel(pressed);
 	}
 
+	if (stoi(string(Quantity->GetLabel())) == 0) {
+		finished();
+	}
 }
 
 void MainFrame::selectField(wxCommandEvent& event) {
@@ -331,6 +354,8 @@ void MainFrame::update_Timer() {
 
 void MainFrame::generate(wxCommandEvent& event) {
 	loadSudokuField();
+	instance->solveSudoku(0,0);
+	Sudoku a(*instance);
 }
 
 void MainFrame::solve(wxCommandEvent& event) {
@@ -371,6 +396,16 @@ void MainFrame::bufferNextGrid() {
 			this_thread::sleep_for(1s);
 		}
 		this_thread::sleep_for(500ms);
+	}
+}
+
+void MainFrame::boostStart() {
+	Sudoku tmp;
+	tmp.changeDifficulty(50, 54);
+	while (instance->hardGrid->size() < 4) {
+		tmp.generateSudoku();
+		instance->hardGrid->push_back(tmp);
+		this_thread::sleep_for(1s);
 	}
 }
 
