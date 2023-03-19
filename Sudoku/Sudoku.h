@@ -33,3 +33,7 @@ public:
 	int QuantityOfSolutions(int row, int col);
 	short getValue(short x, short y);
 };
+
+enum {
+	myID_NEXT
+};

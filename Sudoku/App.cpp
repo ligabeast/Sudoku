@@ -6,7 +6,8 @@ wxIMPLEMENT_APP(App);
 
 bool App::OnInit() {
 	MainFrame* main = new MainFrame("Sudoku by Baran");
-	main->SetSizeHints(800, 800);
+	main->SetWindowStyle(main->GetWindowStyle() | wxSTAY_ON_TOP);
+	main->SetMinSize(wxSize(1800, 1000));
 
 	main->Show();
 	return true;

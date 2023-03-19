@@ -23,7 +23,7 @@ bool Sudoku::changeValue(short x, short y, short value) {
 }
 
 Sudoku::Sudoku() {
-	this->maxCells = 53;
+	this->maxCells = 54;
 	this->minCells = 40;
 
 	this->easyGrid = new std::deque<Sudoku>();
@@ -55,20 +55,20 @@ void Sudoku::setSudoku(int Difficulty) {
 	using namespace std;
 	switch (Difficulty)
 	{
-	case 1://easy
+	case 0://easy
 		while (easyGrid->size() == 0) { this_thread::sleep_for(1s); }
 		this->cpySudokuField(easyGrid->front());
 		easyGrid->pop_front();
 		break;
-	case 2://medium
+	case 1://medium
 		while (mediumGrid->size() == 0) { this_thread::sleep_for(1s); }
 		this->cpySudokuField(mediumGrid->front());
-		easyGrid->pop_front();
+		mediumGrid->pop_front();
 		break;
-	case 3://hard
+	case 2://hard
 		while (hardGrid->size() == 0) { this_thread::sleep_for(1s); }
 		this->cpySudokuField(hardGrid->front());
-		easyGrid->pop_front();
+		hardGrid->pop_front();
 		break;
 	}
 }
@@ -88,6 +88,8 @@ bool Sudoku::checkColumn(int col, int number) {
 }
 
 void Sudoku::generateSudoku() {
+
+	srand(time(nullptr));
 
 	do {
 		do {
