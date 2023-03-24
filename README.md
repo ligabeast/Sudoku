@@ -12,7 +12,7 @@ Before i start to talk about something you dont even saw, lets first look the UI
 
 The UI offers three different difficulties (easy, medium, hard). Where the Difficulty is proportional to quantity of empty cells. By clicking of one of the difficulties a new Sudoku Field is generated.
 
-#Right-Side
+# Right-Side
 
 ![image](https://user-images.githubusercontent.com/114762651/227609543-3c44d07a-6472-4446-8a70-90e017c44e36.png)
 
